@@ -23,7 +23,7 @@ class TestSimpleIBAN < Test::Unit::TestCase
     assert str1 == str2
   end
 
-  def test_IBAN_to_s_formatting_in_blocks_of_4_characters (except the last one)
+  def test_IBAN_to_s_formatting_in_blocks_of_4_characters # (except the last one)
     i = IBAN.new 'GB82WEST12345698765432'
     assert_match /([A-Z0-9]{4}\s)+[A-Z0-9]{1,3}/, i.to_s
   end
