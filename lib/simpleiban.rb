@@ -37,8 +37,3 @@ class IBAN
    end
 
 end
-
-
-a = IBAN.new (' GB82 WEST 1234 5698 7654 32 ')
-print a.is_valid?
-print a.to_s
