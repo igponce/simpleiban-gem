@@ -7,7 +7,7 @@ class IBAN
    # Example:
    #
    # foo = 'GB82WEST12345698765432'
-   # foo.is_valid?
+   # foo.valid?
    #
    # Can also "pretty display" IBAN numbers:
    # foo.to_s
@@ -22,11 +22,11 @@ class IBAN
    end
 
    def self.check
-     # Checks validity of IBAN, alias for is_valid?
-     return is_valid?
+     # Checks validity of IBAN, alias for valid?
+     return valid?
    end
 
-   def is_valid?
+   def valid?
 
      # Checks if the IBAN checksum is correct and
      # Good to detect typos in the IBAN

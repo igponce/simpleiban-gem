@@ -13,7 +13,7 @@ Create a new IBAN to check:
 
 Is it valid (according to the rules)?
 
-    a.is_valid?
+    a.valid?
 
 And pretty_print it (as a string):
 

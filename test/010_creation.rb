@@ -5,15 +5,15 @@ class TestSimpleIBAN < Test::Unit::TestCase
 
   def test_detectValidIBANChecksum
     a = IBAN.new 'GB82WEST12345698765432' # from wikipedia
-    assert a.is_valid?
+    assert a.valid?
   end
 
   def test_detectInvalidIBANChecksum
-    assert !(IBAN.new 'GB00 WEST 000000000000').is_valid?
+    assert !(IBAN.new 'GB00 WEST 000000000000').valid?
   end
 
   def test_detectValidIBAN_withspaces
-    assert (IBAN.new 'GB 8 2 WE ST 12345 698 765 432').is_valid?
+    assert (IBAN.new 'GB 8 2 WE ST 12345 698 765 432').valid?
   end
 
   def test_creationDoesNotHaveSideEffectsOnStrings
@@ -29,12 +29,12 @@ class TestSimpleIBAN < Test::Unit::TestCase
   end
 
   def test_IBANWithInvalidCharacters
-    assert_equal false, IBAN.new('GB82WEST|2345698765432').is_valid?
-    assert_equal false, IBAN.new('GB82WEST@2345698765432').is_valid?
-    assert_equal false, IBAN.new('GB82WEST(2345698765432').is_valid?
-    assert_equal false, IBAN.new('GB82WEST)2345698765432').is_valid?
-    assert_equal false, IBAN.new('GB82WEST!2345698765432').is_valid?
-    assert_equal false, IBAN.new('GB82WEST,2345698765432').is_valid?
+    assert_equal false, IBAN.new('GB82WEST|2345698765432').valid?
+    assert_equal false, IBAN.new('GB82WEST@2345698765432').valid?
+    assert_equal false, IBAN.new('GB82WEST(2345698765432').valid?
+    assert_equal false, IBAN.new('GB82WEST)2345698765432').valid?
+    assert_equal false, IBAN.new('GB82WEST!2345698765432').valid?
+    assert_equal false, IBAN.new('GB82WEST,2345698765432').valid?
   end
 
 end

@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.date        = '2015-05-05'
   s.summary     = "IBAN account verification"
   s.description = "Simple IBAN account checking - verifies that IBAN is valid"
-  s.authors     = ["Iñigo González"]
+  s.authors     = ["Inigo Gonzalez"]
   s.email       = 'igponce at gmail dot com'
   s.files       = ["lib/simpleiban.rb"]
   s.homepage    = 'http://rubygems.org/gems/simpleiban'
