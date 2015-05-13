@@ -13,7 +13,7 @@ class TestSimpleIBAN < Test::Unit::TestCase
   end
 
   def test_detectValidIBAN_withspaces
-    assert (IBAN.new 'GB 8 2 WE ST 12345 698 765 432').valid?
+    assert (IBAN.new 'G B8 2WE ST12 34569 876543 2').valid?
   end
 
   def test_creationDoesNotHaveSideEffectsOnStrings
@@ -23,9 +23,11 @@ class TestSimpleIBAN < Test::Unit::TestCase
     assert str1 == str2
   end
 
-  def test_IBAN_to_s_formatting_in_blocks_of_4_characters # (except the last one)
-    i = IBAN.new 'GB82WEST12345698765432'
-    assert_match /([A-Z0-9]{4}\s)+[A-Z0-9]{1,3}/, i.to_s
+  def test_IBAN_to_s_formatting
+    # Iban formatting in blocks of 4 characters
+    # Using only uppercase characters on output
+    # No leading or trailing characters allowed
+    assert_match /^([A-Z0-9]{4}\s)+[A-Z0-9]{1,4}?$/, IBAN.new('gb82 wEst 12345698765432').to_s
   end
 
   def test_IBANWithInvalidCharacters

@@ -46,9 +46,18 @@ class IBAN
      # Returns a normalized IBAN string: 4-block characters
      # with uppercase characters when needed.
 
-     retval = String.new @iban
-     (@iban.length/4).times { |i| retval.insert 4*(@iban.length)/4-4*i, ' ' }
+     #retval = String.new @iban
+     #(@iban.length/4).times { |i| retval.insert 4*(@iban.length)/4-4*i, ' ' }
+     #return retval
+     retval = String.new
+     temp = String.new @iban
+     while (temp.length > 4) do
+       retval += temp.slice! 0..3
+       retval += ' ' unless temp.length <5
+     end
+
      return retval
+
    end
 
 end
